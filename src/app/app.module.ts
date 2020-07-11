@@ -5,21 +5,19 @@ import { AppRoutingModule } from './app-routing.module'; // CLI imports AppRouti
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './common/navbar/navbar.component';
-import { ProductListComponent } from './product-list/product-list.component';
-import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { ProductModule } from './product/product.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    ProductListComponent,
-    ProductDetailComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ProductModule
   ],
   providers: [],
   bootstrap: [AppComponent]

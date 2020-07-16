@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import { products } from 'src/app/product';
+import { HttpClient } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { catchError, retry } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -7,14 +10,14 @@ import { products } from 'src/app/product';
 
 export class ProductService {
 
-  constructor(){}
+  constructor(private http: HttpClient) { }
 
-  getProducts(){
-    return products;
+  getProducts(): Observable<any>{
+    return this.http.get('/api/v1/products')
   }
 
-  getProductById(productId:number){
-    return products[productId]
+  getProductById(productId:string):Observable<any>{
+    return this.http.get('/api/v1/products/'+productId)
   }
 
 }

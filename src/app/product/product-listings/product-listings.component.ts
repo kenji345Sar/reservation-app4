@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ProductService} from  '../shared/product.service.js';
 import {products} from '../../product';
 
+
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-listings.component.html',
@@ -14,8 +15,15 @@ export class ProductListComponent implements OnInit {
   constructor(private productService:ProductService) { }
 
   ngOnInit(): void {
-    this.products = this.productService.getProducts();
-    // this.products = products;
+    const productsObservable = this.productService.getProducts();
+
+    productsObservable.subscribe(
+      (data)=> {
+        this.products = data;
+      },
+      (err)=> { console.error('something wrong occurred: ' + err); },
+    );
+
   }
 
 }

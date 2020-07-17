@@ -25,13 +25,13 @@ mongoose.connect(config.DB_URI, {
 // })
 app.use('/api/v1/products', productRoutes)
 
-// if(process.env.NODE_ENV === 'production') {
-  const appPath = path.join( __dirname, '..', 'dist', 'reservation-app-sawa')
+if(process.env.NODE_ENV === 'production') {
+  const appPath = path.join( __dirname, '..', 'dist', 'reservation-app4')
   app.use(express.static(appPath))
   app.get("*", function(req, res) {
     res.sendFile(path.resolve(appPath, 'index.html'))
   })
-// }
+}
 
 /* 2. listen()メソッドを実行して3000番ポートで待ち受け。*/
 var server = app.listen(3000, function(){

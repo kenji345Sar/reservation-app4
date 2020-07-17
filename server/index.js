@@ -20,9 +20,6 @@ mongoose.connect(config.DB_URI, {
 )
 
 
-// app.get('/product', function (req, res) {
-//   res.json({ user: 'tobi' })
-// })
 app.use('/api/v1/products', productRoutes)
 
 if(process.env.NODE_ENV === 'production') {
@@ -33,9 +30,8 @@ if(process.env.NODE_ENV === 'production') {
   })
 }
 
-/* 2. listen()メソッドを実行して3000番ポートで待ち受け。*/
-var server = app.listen(3000, function(){
-    console.log("Node.js is listening to PORT:" + server.address().port);
-});
+const PORT = process.env.PORT || '3001'
 
-// mongodb+srv://test:<password>@cluster0.46xic.mongodb.net/<dbname>?retryWrites=true&w=majority
+app.listen(PORT, function() {
+  console.log('I am running!')
+})

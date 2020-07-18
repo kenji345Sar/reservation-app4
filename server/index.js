@@ -14,7 +14,7 @@ mongoose.connect(config.DB_URI, {
   () => {
     if(process.env.NODE_ENV !== 'production') {
       const sampleDb = new SampleDb()
-      // sampleDb.initDb()
+      sampleDb.initDb()
     }
   }
 )

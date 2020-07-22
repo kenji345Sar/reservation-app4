@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module'; // CLI imports AppRouti
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './common/navbar/navbar.component';
-import { ProductModule } from './product/product.module';
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -18,7 +17,6 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    ProductModule,
     HttpClientModule
   ],
   providers: [],

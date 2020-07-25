@@ -27,6 +27,14 @@
           </button>
       </div>
       <div class="navbar-collapse" id="navbarToggler">
+        <ng-container *ngIf="auth.isAuthenticated()">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a (click)="logout()" class="nav-link"> ログアウト</a>
+            </li>
+          </ul>
+        </ng-container>
+        <ng-container *ngIf="!auth.isAuthenticated()">
           <ul class="navbar-nav ml-auto">
               <li class="nav-item" >
                   <a routerLink="/register" class="btn btn-danger btn-round">新規登録</a>
@@ -35,6 +43,7 @@
                   <a routerLink="/login" class="nav-link">ログイン</a>
               </li>
           </ul>
+        </ng-container>
       </div>
   </div>
 </nav>
